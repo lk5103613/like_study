@@ -6,8 +6,8 @@
 // @author       Like
 // @match        https://jnftc.jnbank.com.cn/**
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=jnbank.com.cn
-// @updateURL https://github.com/lk5103613/like_study/blob/main/like_study.js
-// @downloadURL https://github.com/lk5103613/like_study/blob/main/like_study.js
+// @updateURL https://raw.githubusercontent.com/lk5103613/like_study/refs/heads/main/like_study_meta.js
+// @downloadURL https://raw.githubusercontent.com/lk5103613/like_study/refs/heads/main/like_study.js
 // @grant GM_setValue
 // @grant GM_getValue
 // @grant GM_deleteValue
