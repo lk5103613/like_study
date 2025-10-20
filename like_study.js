@@ -1,11 +1,13 @@
 // ==UserScript==
 // @name         Like Study
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/lk5103613/like_study/blob/main/like_study.js
 // @version      1.0
 // @description  学无止境
 // @author       Like
 // @match        https://jnftc.jnbank.com.cn/**
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=jnbank.com.cn
+// @updateURL https://github.com/lk5103613/like_study/blob/main/like_study.js
+// @downloadURL https://github.com/lk5103613/like_study/blob/main/like_study.js
 // @grant GM_setValue
 // @grant GM_getValue
 // @grant GM_deleteValue
