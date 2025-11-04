@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Like Study
 // @namespace    https://github.com/lk5103613/like_study/blob/main/like_study.js
-// @version      1.0
+// @version      1.1
 // @description  学无止境
 // @author       Like
 // @match        https://jnftc.jnbank.com.cn/**
@@ -333,6 +333,7 @@
                 const courseWareId = videoInfos[0].replaceAll("'", "")
                 const videoName = encodeURIComponent(videoInfos[1].replaceAll("'", "")).replaceAll(/%2F/g, '/').replace(/%E3%80%81/g, '、')
                 const courseId = videoInfos[3].replaceAll("'", "")
+                // https://jnftc.jnbank.com.cn/WebTraining/Web/MyClass/OnLineRead.aspx?CoursewareId=d91d0580-2ae8-45f2-b86e-a2c62c8c449d&TypeValue=0&Url=2025%u5E74%u91D1%u57F9%u5185%u8BAD%u5E08%u8BFE%u4EF6/5%u3001%u738B%u5353%u621057464/321%u8D37%u6B3E%u50AC%u6536%u6CD5%u5F88%u8F7B%u677E%uFF08%u6539%uFF09%20%282%29.mp4&Type=1&CourseId=b61176db-63f0-4f5d-8f17-56ef7b99f4ed
                 const videoUrl = `${baseUrl}/WebTraining/Web/MyClass/OnLineRead.aspx?CoursewareId=${courseWareId}&TypeValue=0&Url=${videoName}&Type=1&CourseId=${courseId}`
                 videoList.push({
                     name: name,
@@ -361,8 +362,13 @@
             const examId = onclickContent.replace("CreateExam('", "")
                 .replace("')", "")
             //         this.url = host + "WebTraining/Web/MyExam/aspNet/ExamCreate.ashx?Tk_Cl_Id=" + examId + "&Clerk_id=" + studentId + "&SiteType=";
-            const url = `${baseUrl}/WebTraining/Web/MyExam/aspNet/ExamCreate.ashx?Tk_Cl_Id=${examId}&Clerk_id=${sStudentId}&SiteType=`
-            window.open(url)
+            const functionSource = btnGiveUp_onclick.toString();
+            const match = functionSource.match(/var\s+sStudentId\s*=\s*['"]([^'"]+)['"]/);
+            if (match) {
+                const sStudentId = match[1];
+                const url = `${baseUrl}/WebTraining/Web/MyExam/aspNet/ExamCreate.ashx?Tk_Cl_Id=${examId}&Clerk_id=${sStudentId}&SiteType=`
+                window.open(url)
+            }
         }
 
         static async rate() {
@@ -398,7 +404,7 @@
             const loginId = loginIdEle.value
             const duration = parseInt(document.getElementsByTagName('video')[0].duration) + 120
             window.open(`${baseUrl}/WebTraining/Web/MyClass/SetTime.ashx?LoginInfoId=${loginId}&pTime=${duration}`)
-            await DomHelper.wait(1000)
+            await DomHelper.wait(2000)
             window.close()
         }
 
