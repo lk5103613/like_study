@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Like Study
 // @namespace    https://github.com/lk5103613/like_study/blob/main/like_study.js
-// @version      1.1
+// @version      1.2
 // @description  学无止境
 // @author       Like
 // @match        https://jnftc.jnbank.com.cn/**

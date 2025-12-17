@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Like Study
 // @namespace    https://github.com/lk5103613/like_study/blob/main/like_study.js
-// @version      1.1
+// @version      1.2
 // @description  学无止境
 // @author       Like
 // @match        https://jnftc.jnbank.com.cn/**
@@ -144,6 +144,7 @@
                 GM_removeValueChangeListener(listenerId)
                 await loopCourse(0, newValue)
                 resolve(newValue)
+                GM_deleteValue(Constants.COURSE_LIST)
             })
             window.open(currentSubject.url)
         })
@@ -268,7 +269,6 @@
             for (let courseEle of courseEleList) {
                 const tdEleList = courseEle.querySelectorAll('.table0 td')
                 const name = tdEleList[1].innerHTML
-                console.log(name)
                 const infoEle = tdEleList[0]
                 let onclickContent = infoEle.querySelector('a').getAttribute('onclick')
                 onclickContent = onclickContent.replace("window.open('..", "")
