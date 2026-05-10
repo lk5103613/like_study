@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Like Study
 // @namespace    https://github.com/lk5103613/like_study/blob/main/like_study.js
-// @version      1.2
+// @version      1.3
 // @description  学无止境
 // @author       Like
 // @match        https://jnftc.jnbank.com.cn/**
@@ -173,6 +173,7 @@
 
     async function loopVideo(index, videoList) {
         if (index >= videoList.length) {
+            GM_setValue(Constants.REFRESH_COURSE, true)
             await CourseHandler.checkStatus()
             return
         }
@@ -402,7 +403,7 @@
             await DomHelper.wait(3000)
             const loginIdEle = await DomHelper.findElementWithWait(() => document.getElementById('txtLoginInfoId'))
             const loginId = loginIdEle.value
-            const duration = parseInt(document.getElementsByTagName('video')[0].duration) + 120
+            const duration = parseInt(document.getElementsByTagName('video')[0].duration) + 1
             window.open(`${baseUrl}/WebTraining/Web/MyClass/SetTime.ashx?LoginInfoId=${loginId}&pTime=${duration}`)
             await DomHelper.wait(2000)
             window.close()
@@ -416,7 +417,8 @@
 
     if (VideoHandler.isMatchSetTime()) {
         await DomHelper.wait(1000)
-        GM_setValue(Constants.REFRESH_COURSE, true)
+        // GM_setValue(Constants.REFRESH_COURSE, true)
+        GM_setValue(Constants.VIDEO_DETAIL, true)
         window.close()
     }
 
