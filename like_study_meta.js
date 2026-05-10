@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         Like Study
 // @namespace    https://github.com/lk5103613/like_study/blob/main/like_study.js
-// @version      1.2
+// @version      1.3
 // @description  学无止境
 // @author       Like
 // @match        https://jnftc.jnbank.com.cn/**
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=jnbank.com.cn
-// @updateURL https://raw.githubusercontent.com/lk5103613/like_study/refs/heads/main/like_study_meta.js
+// @updateURL https://raw.githubusercontent.com/lk5103613/like_study/refs/heads/main/like_study.js
 // @downloadURL https://raw.githubusercontent.com/lk5103613/like_study/refs/heads/main/like_study.js
 // @grant GM_setValue
 // @grant GM_getValue
