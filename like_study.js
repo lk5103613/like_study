@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Like Study
 // @namespace    https://github.com/lk5103613/like_study/blob/main/like_study.js
-// @version      1.3
+// @version      1.4
 // @description  学无止境
 // @author       Like
 // @match        https://jnftc.jnbank.com.cn/**
@@ -125,8 +125,8 @@
 
     if (IndexHandler.isMatch()) {
         Constants.clear()
-        IndexHandler.clickLogin()
-        IndexHandler.inputLoginInfo()
+        // IndexHandler.clickLogin()
+        // IndexHandler.inputLoginInfo()
         IndexHandler.toMySubject()
         const listenerId = GM_addValueChangeListener(Constants.SUBJECT_LIST, async (key, oldValue, newValue, remote) => {
             GM_removeValueChangeListener(listenerId)
